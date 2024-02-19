@@ -4,7 +4,8 @@ let startTime, endTime;
 function startTest() {
     // Set the test text
     document.getElementById("inputText").value = testText;
-
+    document.getElementById('userInput').focus();
+    document.getElementById("userInput").readOnly = false;
     // Reset results and timer
     document.getElementById("output").innerHTML = "";
     startTime = new Date().getTime();
@@ -39,6 +40,7 @@ function endTest() {
     // Display the results
     var outputDiv = document.getElementById("output");
     outputDiv.innerHTML = "<h2>Typing Test Results:</h2>" +
+    "<p>Total Length: " + userTypedText.length + "</p>" +
         "<p>Words Typed: " + typedWords + "</p>" +
         "<p>Time Elapsed: " + timeElapsed.toFixed(2) + " seconds</p>" +
         "<p>Words Per Minute (WPM): " + wpm + "</p>";
@@ -47,4 +49,5 @@ function endTest() {
     var button = document.getElementById("btn");
     button.innerHTML = "Start Test";
     button.onclick = startTest;
+    document.getElementById('userInput').value = '' ;
 }
