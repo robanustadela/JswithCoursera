@@ -26,6 +26,7 @@ function showBooks() {
     <p><strong>Book Author: </strong> ${book.authorName}</p>
     <p><strong>Book Description: </strong> ${book.bookDescription}</p>
     <p><strong>Book Page: </strong> ${book.pagesNumber}</p>
+    <button onclick="deleteBook(${index})"> Delete</button>
     `)
     document.getElementById('books').innerHTML = booksDiv;
 }
@@ -43,4 +44,9 @@ function clearInputs(){
     document.getElementById('bookDescription').value = '';
     document.getElementById('pagesNumber').value = '';
 
+}
+function deleteBook(bookNumber){
+    // books.splice(bookNumber, 1)
+    books.filter((book, index) => index !== bookNumber);
+    showBooks();
 }
